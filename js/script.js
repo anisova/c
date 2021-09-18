@@ -3,7 +3,6 @@ const resultSwiper = new Swiper('.result-slider', {
     direction: 'horizontal',
     loop: true,
     slideToClickedSlide: true,    
-    // centeredSlides:true,
     navigation: {
       nextEl: '.result-slider__next',
       prevEl: '.result-slider__prev',
@@ -20,7 +19,8 @@ const resultSwiper = new Swiper('.result-slider', {
       },
       900: {
         slidesPerView: 3,
-        spaceBetween: 30,        
+        spaceBetween: 30,
+        autoHeight:true, 
       }
     }
   });
@@ -31,38 +31,38 @@ swiperPrev.addEventListener('click', () => {
 })
 swiperNext.addEventListener('click', () => {
   resultSwiper.slideNext();
-});
-window.onload = function() {
+})
 //Инициализация  слайдера library
-  const librarySwiper = new Swiper('.library-slider', {
-    direction: 'horizontal',
-    loop: true,
-    slideToClickedSlide: true,
-    autoHeight:true,  
-    centeredSlides:true,
-    observer:true,
-    observeParents:true,
-    observeSlideChildren:true,    
-    navigation: {
-      nextEl: '.library-slider__next',
-      prevEl: '.library-slider__prev',
+window.onload = function() {
+const librarySwiper = new Swiper('.library-slider', {
+  direction: 'horizontal',
+  loop: true,
+  slideToClickedSlide: true,
+  autoHeight:true,  
+  centeredSlides:true,
+  observer:true,
+  observeParents:true,
+  observeSlideChildren:true,
+  navigation: {
+    nextEl: '.library-slider__next',
+    prevEl: '.library-slider__prev',
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20,     
+    },   
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 30,      
     },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20,     
-      },   
-      768: {
-        slidesPerView: 1,
-        spaceBetween: 30,      
-      },
-      1000: {
-        slidesPerView: 'auto',
-        spaceBetween: 30,
-        
-      }
+    1000: {
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      
     }
-  });
+  }
+});
 //Инициализация слайдера care
 const careSwiper = new Swiper('.care-slider', {
   direction: 'horizontal',
@@ -232,8 +232,7 @@ function toggleModal(modalWindow, openButton, closeButton) {
 
 toggleModal(".form-modal", ".btn", ".btn-close");
 toggleModal(".policy-modal", ".btn_policy", ".btn-close");
- 
-  
+
   //функция переключения табов
   function toggleTab() {
     tabs = document.querySelectorAll(".tab");
@@ -258,7 +257,6 @@ toggleModal(".policy-modal", ".btn_policy", ".btn-close");
       e.preventDefault();
       meet.insertAdjacentHTML('afterbegin', '<iframe class="meet__iframe" allow=autoplay width="100%" height="100%" src="https://www.youtube.com/embed/Mad2tToZwgY?autoplay=1"  frameborder="0" ></iframe>');
     })
-
   }
   brandVideo();
   function brandVideo1() {
@@ -267,7 +265,7 @@ toggleModal(".policy-modal", ".btn_policy", ".btn-close");
     const videoPoster = document.querySelector('.brand__img');
     videoBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      brand.insertAdjacentHTML('afterbegin', '<iframe class="brand__iframe" allow=autoplay allowfullscreen width="100%" height="100%" src="https://www.youtube.com/embed/F1xwj-sWBDI?autoplay=1" frameborder="0"></iframe>');
+      brand.insertAdjacentHTML('afterbegin', '<iframe class="brand__iframe" allow=autoplay allowfullscreen width="100%" height="100%" src="https://www.youtube.com/embed/qlhZK2sl8Ts?autoplay=1" frameborder="0"></iframe>');
       videoPoster.style.display = 'none';
     })
   }
@@ -360,57 +358,87 @@ toggleModal(".policy-modal", ".btn_policy", ".btn-close");
   }
   //end of scrollToSection()
   scrollToSection();
-  // функция для работы модальных окон с видео
-function videoModal(modalWindow, openButton, closeButton,link) {  
-  const openBtns = document.querySelectorAll(openButton);  
-    const modal = document.querySelector(modalWindow);      
-    if (modal) {
-      const closeBtn = modal.querySelector(closeButton);    
-      openBtns.forEach(btn => {
-      btn.addEventListener("click", (e) => {               
-      e.preventDefault();      
-      const content = document.querySelector('.video-modal__content');
-      content.insertAdjacentHTML('afterbegin', `<iframe class ="video" width="960" height="540" src=${link} title="YouTube video player" frameborder="0" allow=autoplay allowfullscreen></iframe>`);     
-      modal.classList.add('active');
-      document.body.style.overflowY = "hidden";
-    });
-    });  
-      closeBtn.addEventListener("click", () => {         
-        modal.classList.remove('active');   
-        document.body.style.overflowY = "";     
-        const currentVideo = document.querySelector('.video');
-        if (currentVideo!=null) {
-            currentVideo.remove();
-          }
+  //функции модальных окон с видео
+function videoModal(modalWindow, openButton, closeButton) {
+    const openBtns = document.querySelectorAll(openButton);    
+      const modal = document.querySelector(modalWindow);      
+      if (modal) {
+        const closeBtn = modal.querySelector(closeButton);    
+        openBtns.forEach(btn => {
+        btn.addEventListener("click", (e) => {           
+        e.preventDefault();      
+        const content = document.querySelector('.video-modal__content');
+        content.insertAdjacentHTML('afterbegin', '<iframe class ="video1" width="960" height="540"  src="https://www.youtube.com/embed/XitxkwKyYLM?autoplay=1" title="YouTube video player" frameborder="0" allow=autoplay allowfullscreen></iframe>');     
+        modal.classList.add('active');
+        document.body.style.overflowY = "hidden";
       });
+      });  
+        closeBtn.addEventListener("click", () => {         
+          modal.classList.remove('active');   
+          document.body.style.overflowY = "";
+          document.querySelector('.video1').remove();
+        });
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            closeBtn.click();
+          }
+        });
+      }
     }
-  }
-videoModal('.video-modal','.placeholder1-1','.btn-close_white','https://www.youtube.com/embed/XitxkwKyYLM?autoplay=1');
-videoModal('.video-modal','.placeholder1-2','.btn-close_white','https://www.youtube.com/embed/lksRaXutACk?autoplay=1');
-videoModal('.video-modal','.placeholder1-3','.btn-close_white','https://www.youtube.com/embed/WsZGuLwIcXc?autoplay=1');
-videoModal('.video-modal','.placeholder1-4','.btn-close_white','https://www.youtube.com/embed/VBYRccSJG38?autoplay=1');
-videoModal('.video-modal','.placeholder1-5','.btn-close_white','https://www.youtube.com/embed/8VijW8BVsyQ?autoplay=1');
-videoModal('.video-modal','.placeholder1-6','.btn-close_white','https://www.youtube.com/embed/NrG1oQHH2yM?autoplay=1');
-videoModal('.video-modal','.placeholder1-7','.btn-close_white','https://www.youtube.com/embed/7XVCrvdeRYs?autoplay=1');
-videoModal('.video-modal','.placeholder1-8','.btn-close_white','https://www.youtube.com/embed/xLfTcIAnduw?autoplay=1');
-videoModal('.video-modal','.placeholder1-9','.btn-close_white','https://www.youtube.com/embed/pHFMdZFBMlo?autoplay=1');
-videoModal('.video-modal','.placeholder2-1','.btn-close_white','https://www.youtube.com/embed/80C5milVfO4?autoplay=1');
-videoModal('.video-modal','.placeholder2-2','.btn-close_white','https://www.youtube.com/embed/ICgRcdpUxEA?autoplay=1');
-videoModal('.video-modal','.placeholder2-3','.btn-close_white','https://www.youtube.com/embed/wCRjP2fNo00?autoplay=1');
-videoModal('.video-modal','.placeholder2-4','.btn-close_white','https://www.youtube.com/embed/RmvgM550dVM?autoplay=1');
-videoModal('.video-modal','.placeholder3-1','.btn-close_white','https://www.youtube.com/embed/oB5wIeCAKsc?autoplay=1');
-videoModal('.video-modal','.placeholder3-2','.btn-close_white','https://www.youtube.com/embed/n8dpI5ufKC8?autoplay=1');
-videoModal('.video-modal','.placeholder4-1','.btn-close_white','https://www.youtube.com/embed/ugu_ulLDwIc?autoplay=1');
-videoModal('.video-modal','.placeholder4-2','.btn-close_white','https://www.youtube.com/embed/k8FEPKZ0Vvs?autoplay=1');
-videoModal('.video-modal','.placeholder5-1','.btn-close_white','https://www.youtube.com/embed/VPOfq2mEP6k?autoplay=1');
-videoModal('.video-modal','.placeholder5-3','.btn-close_white','https://www.youtube.com/embed/ek8EgMC4u_M?autoplay=1');
-videoModal('.video-modal','.placeholder5-4','.btn-close_white','https://www.youtube.com/embed/eT4bsvOKGCo?autoplay=1');
-videoModal('.video-modal','.placeholder5-5','.btn-close_white','https://www.youtube.com/embed/XRikMseKDF0?autoplay=1');
-videoModal('.video-modal','.placeholder5-6','.btn-close_white','https://www.youtube.com/embed/AcxLJ_wufXc?autoplay=1');
-videoModal('.video-modal','.placeholder5-7','.btn-close_white','https://www.youtube.com/embed/E2xPvax4K5E?autoplay=1');
-videoModal('.video-modal','.placeholder5-8','.btn-close_white','https://www.youtube.com/embed/Mad2tToZwgY?autoplay=1');
-
-
+    function videoModal(modalWindow, openButton, closeButton) {
+        const openBtns = document.querySelectorAll(openButton);    
+          const modal = document.querySelector(modalWindow);      
+          if (modal) {
+            const closeBtn = modal.querySelector(closeButton);    
+            openBtns.forEach(btn => {
+            btn.addEventListener("click", (e) => {           
+            e.preventDefault();      
+            const content = document.querySelector('.video-modal__content');
+            content.insertAdjacentHTML('afterbegin', '<iframe class ="video1" width="960" height="540"  src="https://www.youtube.com/embed/XitxkwKyYLM?autoplay=1" title="YouTube video player" frameborder="0" allow=autoplay allowfullscreen></iframe>');     
+            modal.classList.add('active');
+            document.body.style.overflowY = "hidden";
+          });
+          });  
+            closeBtn.addEventListener("click", () => {         
+              modal.classList.remove('active');   
+              document.body.style.overflowY = "";
+              document.querySelector('.video1').remove();
+            });
+            modal.addEventListener("click", (e) => {
+              if (e.target === modal) {
+                closeBtn.click();
+              }
+            });
+          }
+        }   
+    videoModal('.video-modal','.placeholder1','.btn-close_white');
+    function videoModal2(modalWindow, openButton, closeButton) {
+        const openBtns = document.querySelectorAll(openButton);    
+          const modal = document.querySelector(modalWindow);      
+          if (modal) {
+            const closeBtn = modal.querySelector(closeButton);    
+            openBtns.forEach(btn => {
+            btn.addEventListener("click", (e) => {           
+            e.preventDefault();      
+            const content = document.querySelector('.video2-modal__content');
+            content.insertAdjacentHTML('afterbegin', '<iframe class ="video2" width="960" height="540" src="https://www.youtube.com/embed/80C5milVfO4?autoplay=1" title="YouTube video player" frameborder="0" allow=autoplay allowfullscreen></iframe>');     
+            modal.classList.add('active');
+            document.body.style.overflowY = "hidden";
+          });
+          });  
+            closeBtn.addEventListener("click", () => {         
+              modal.classList.remove('active');   
+              document.body.style.overflowY = "";
+              document.querySelector('.video2').remove();
+            });
+            modal.addEventListener("click", (e) => {
+              if (e.target === modal) {
+                closeBtn.click();
+              }
+            });
+          }
+        }
+      videoModal2('.video2-modal','.placeholder2','.btn-close_white');  
   //функция масок формы
 Inputmask({regex:"[a-zA-Zа-яА-я-]*"}).mask(document.getElementsByName('name'));
 Inputmask({regex:"[a-zA-Zа-яА-я-]*"}).mask(document.getElementsByName('city'));
