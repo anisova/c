@@ -232,8 +232,7 @@ function toggleModal(modalWindow, openButton, closeButton) {
 
 toggleModal(".form-modal", ".btn", ".btn-close");
 toggleModal(".policy-modal", ".btn_policy", ".btn-close");
- 
-  
+
   //функция переключения табов
   function toggleTab() {
     tabs = document.querySelectorAll(".tab");
@@ -258,7 +257,6 @@ toggleModal(".policy-modal", ".btn_policy", ".btn-close");
       e.preventDefault();
       meet.insertAdjacentHTML('afterbegin', '<iframe class="meet__iframe" allow=autoplay width="100%" height="100%" src="https://www.youtube.com/embed/Mad2tToZwgY?autoplay=1"  frameborder="0" ></iframe>');
     })
-
   }
   brandVideo();
   function brandVideo1() {
@@ -267,7 +265,7 @@ toggleModal(".policy-modal", ".btn_policy", ".btn-close");
     const videoPoster = document.querySelector('.brand__img');
     videoBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      brand.insertAdjacentHTML('afterbegin', '<iframe class="brand__iframe" allow=autoplay allowfullscreen width="100%" height="100%" src="https://www.youtube.com/embed/F1xwj-sWBDI?autoplay=1" frameborder="0"></iframe>');
+      brand.insertAdjacentHTML('afterbegin', '<iframe class="brand__iframe" allow=autoplay allowfullscreen width="100%" height="100%" src="https://www.youtube.com/embed/qlhZK2sl8Ts?autoplay=1" frameborder="0"></iframe>');
       videoPoster.style.display = 'none';
     })
   }
