@@ -2,7 +2,8 @@
 const resultSwiper = new Swiper('.result-slider', {
     direction: 'horizontal',
     loop: true,
-    slideToClickedSlide: true,    
+    slideToClickedSlide: true,   
+    autoHeight:true, 
     navigation: {
       nextEl: '.result-slider__next',
       prevEl: '.result-slider__prev',
@@ -20,7 +21,7 @@ const resultSwiper = new Swiper('.result-slider', {
       900: {
         slidesPerView: 3,
         spaceBetween: 30,
-        autoHeight:true, 
+        // autoHeight:true, 
       }
     }
   });
