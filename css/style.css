@@ -894,6 +894,13 @@ img {
   opacity: 0;
 }
 
+.result-slide_base {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
+}
+
 .result-slide__pic {
   width: 100%;
 }
