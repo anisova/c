@@ -799,12 +799,14 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-height: 0;
 }
 
 .result-slider .swiper-slide {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  height: 100%;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
 }
 
 .results {
@@ -877,13 +879,6 @@ img {
 
 .result-slider__arrows {
   position: relative;
-}
-
-.result-slider > .swiper-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 0;
 }
 
 .result-slide {
