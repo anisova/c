@@ -1620,6 +1620,11 @@ img {
           justify-content: center;
 }
 
+.video-modal__content {
+  width: 960px;
+  height: 540px;
+}
+
 .video-modal.active {
   visibility: visible;
 }
@@ -2183,6 +2188,11 @@ body.locked {
   .btn-close_white {
     top: 15px;
     right: 15px;
+  }
+
+  .video-modal__content {
+    width: 98vw;
+    height: 500px;
   }
 }
 
