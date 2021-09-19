@@ -20,8 +20,7 @@ const resultSwiper = new Swiper('.result-slider', {
       },
       900: {
         slidesPerView: 3,
-        spaceBetween: 30,
-        // autoHeight:true, 
+        spaceBetween: 30,        
       }
     }
   });
