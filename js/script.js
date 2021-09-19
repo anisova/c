@@ -358,87 +358,33 @@ toggleModal(".policy-modal", ".btn_policy", ".btn-close");
   }
   //end of scrollToSection()
   scrollToSection();
-  //функции модальных окон с видео
-function videoModal(modalWindow, openButton, closeButton) {
-    const openBtns = document.querySelectorAll(openButton);    
-      const modal = document.querySelector(modalWindow);      
-      if (modal) {
-        const closeBtn = modal.querySelector(closeButton);    
-        openBtns.forEach(btn => {
-        btn.addEventListener("click", (e) => {           
-        e.preventDefault();      
-        const content = document.querySelector('.video-modal__content');
-        content.insertAdjacentHTML('afterbegin', '<iframe class ="video1" width="960" height="540"  src="https://www.youtube.com/embed/XitxkwKyYLM?autoplay=1" title="YouTube video player" frameborder="0" allow=autoplay allowfullscreen></iframe>');     
-        modal.classList.add('active');
-        document.body.style.overflowY = "hidden";
+  // функция для работы модальных окон с видео
+function videoModal(modalWindow, openButton, closeButton,link) {
+  const openBtns = document.querySelectorAll(openButton);    
+    const modal = document.querySelector(modalWindow);      
+    if (modal) {
+      const closeBtn = modal.querySelector(closeButton);    
+      openBtns.forEach(btn => {
+      btn.addEventListener("click", (e) => {           
+      e.preventDefault();      
+      const content = document.querySelector('.video-modal__content');
+      content.insertAdjacentHTML('afterbegin', `<iframe class ="video" width="960" height="540" src=${link} title="YouTube video player" frameborder="0" allow=autoplay allowfullscreen></iframe>`);     
+      modal.classList.add('active');
+      document.body.style.overflowY = "hidden";
+    });
+    });  
+      closeBtn.addEventListener("click", () => {         
+        modal.classList.remove('active');   
+        document.body.style.overflowY = "";     
+        const currentVideo = document.querySelector('.video');
+        if (currentVideo!=null) {
+            currentVideo.remove();
+          }
       });
-      });  
-        closeBtn.addEventListener("click", () => {         
-          modal.classList.remove('active');   
-          document.body.style.overflowY = "";
-          document.querySelector('.video1').remove();
-        });
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            closeBtn.click();
-          }
-        });
-      }
     }
-    function videoModal(modalWindow, openButton, closeButton) {
-        const openBtns = document.querySelectorAll(openButton);    
-          const modal = document.querySelector(modalWindow);      
-          if (modal) {
-            const closeBtn = modal.querySelector(closeButton);    
-            openBtns.forEach(btn => {
-            btn.addEventListener("click", (e) => {           
-            e.preventDefault();      
-            const content = document.querySelector('.video-modal__content');
-            content.insertAdjacentHTML('afterbegin', '<iframe class ="video1" width="960" height="540"  src="https://www.youtube.com/embed/XitxkwKyYLM?autoplay=1" title="YouTube video player" frameborder="0" allow=autoplay allowfullscreen></iframe>');     
-            modal.classList.add('active');
-            document.body.style.overflowY = "hidden";
-          });
-          });  
-            closeBtn.addEventListener("click", () => {         
-              modal.classList.remove('active');   
-              document.body.style.overflowY = "";
-              document.querySelector('.video1').remove();
-            });
-            modal.addEventListener("click", (e) => {
-              if (e.target === modal) {
-                closeBtn.click();
-              }
-            });
-          }
-        }   
-    videoModal('.video-modal','.placeholder1','.btn-close_white');
-    function videoModal2(modalWindow, openButton, closeButton) {
-        const openBtns = document.querySelectorAll(openButton);    
-          const modal = document.querySelector(modalWindow);      
-          if (modal) {
-            const closeBtn = modal.querySelector(closeButton);    
-            openBtns.forEach(btn => {
-            btn.addEventListener("click", (e) => {           
-            e.preventDefault();      
-            const content = document.querySelector('.video2-modal__content');
-            content.insertAdjacentHTML('afterbegin', '<iframe class ="video2" width="960" height="540" src="https://www.youtube.com/embed/80C5milVfO4?autoplay=1" title="YouTube video player" frameborder="0" allow=autoplay allowfullscreen></iframe>');     
-            modal.classList.add('active');
-            document.body.style.overflowY = "hidden";
-          });
-          });  
-            closeBtn.addEventListener("click", () => {         
-              modal.classList.remove('active');   
-              document.body.style.overflowY = "";
-              document.querySelector('.video2').remove();
-            });
-            modal.addEventListener("click", (e) => {
-              if (e.target === modal) {
-                closeBtn.click();
-              }
-            });
-          }
-        }
-      videoModal2('.video2-modal','.placeholder2','.btn-close_white');  
+  }
+videoModal('.video-modal','.placeholder1-2','.btn-close_white','https://www.youtube.com/embed/80C5milVfO4?autoplay=1');
+videoModal('.video-modal','.placeholder1-1','.btn-close_white','https://www.youtube.com/embed/XitxkwKyYLM?autoplay=1');  
   //функция масок формы
 Inputmask({regex:"[a-zA-Zа-яА-я-]*"}).mask(document.getElementsByName('name'));
 Inputmask({regex:"[a-zA-Zа-яА-я-]*"}).mask(document.getElementsByName('city'));
