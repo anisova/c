@@ -422,7 +422,7 @@ img {
   position: absolute;
   width: 100%;
   left: 0;
-  top: 35%;
+  top: 65%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -583,18 +583,6 @@ img {
 }
 
 .btn_section {
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  opacity: 0.9;
-}
-
-.btn_section:hover {
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
-          box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
   opacity: 1;
 }
 
@@ -608,6 +596,8 @@ img {
   border: 1px solid #a5a5a5;
   padding: 12px 61px;
   margin-bottom: 65px;
+  -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+          box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -1147,13 +1137,14 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #DBDBDB;
+  background-color: #595b58;
 }
 
 .advantages__test {
   margin-right: 27px;
   font-size: 30px;
   line-height: 153.11%;
+  color: white;
 }
 
 .advantage {
@@ -1497,9 +1488,8 @@ img {
 }
 
 .policy-modal__container {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.9);
   position: relative;
-  background: url("../img/grad.png") no-repeat top center/cover;
   padding: 3vh 0;
   width: 40%;
   max-height: 90%;
@@ -1516,8 +1506,10 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  font-weight: 400;
   -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  color: white;
 }
 
 .policy-modal__content {
@@ -1663,6 +1655,8 @@ img {
   border: 1px solid #A5A5A5;
   padding: 15px 0 15px 15px;
   outline: none;
+  -webkit-box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.2);
+          box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.2);
 }
 
 .form__input:not(:first-child) {
@@ -2310,6 +2304,10 @@ body.locked {
     font-size: 18px;
   }
 
+  .library-slider .library-slide {
+    min-height: 53vw;
+  }
+
   .advantages__socials {
     margin-right: 15px;
   }
@@ -2558,10 +2556,6 @@ body.locked {
 
   .brand__info {
     font-size: 14px;
-  }
-
-  .library-slider .library-slide {
-    min-height: 53vw;
   }
 
   .advantages__socials {
