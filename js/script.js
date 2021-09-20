@@ -188,10 +188,12 @@ const productsSwiper = new Swiper('.products-slider', {
     const ham=document.querySelector('.hamburger');
     const ham_menu=document.querySelector('.ham-menu');
     const body=document.querySelector('body');
+    const html= document.querySelector('html');
     function toggleMenu(){
         ham.classList.toggle('active');
         ham_menu.classList.toggle('is-active');    
         body.classList.toggle('locked'); 
+        html.classList.toggle('locked');
     }
     ham.addEventListener('click',function(e){
     e.preventDefault();  
@@ -251,14 +253,12 @@ toggleModal(".policy-modal", ".btn_policy", ".btn-close");
   toggleTab();
   //функция запуска видео о бренде
   function brandVideo() {
-    const videoBtn = document.querySelector('.video__btn');
+    const videoBtn = document.querySelector('.meet');
     const meet = document.querySelector('.meet');
     videoBtn.addEventListener('click', (e) => {
       e.preventDefault();
       meet.insertAdjacentHTML('afterbegin', '<iframe class="meet__iframe" allow=autoplay width="100%" height="100%" src="https://www.youtube.com/embed/Mad2tToZwgY?autoplay=1"  frameborder="0" ></iframe>');
     })
-
-{/* <iframe width="560" height="315" src="https://www.youtube.com/embed/F1xwj-sWBDI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
 
   }
   brandVideo();
@@ -497,7 +497,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function validateForms(selector, rules) {
     new window.JustValidate(selector, {
         rules: rules,
-        colorWrong: '',
+        colorWrong: 'white',
         messages: {
             name: 'Обязательное поле. Должно содержать только буквы и знак тире "-"',
             email: 'Обязательное поле. Введите корректный адрес email',
@@ -529,6 +529,9 @@ function successModal(modalWindow, closeButton) {
     document.body.style.overflowY = "";
     modal.classList.add('active');
     btn.style.pointerEvents='none';    
+    setTimeout(() => {btn.style.pointerEvents='auto';
+        
+    }, 10000);
     setTimeout(() => closeBtn.click(), 3000);   
       closeBtn.addEventListener("click", () => {
         modal.classList.remove('active');
