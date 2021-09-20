@@ -2196,7 +2196,7 @@ body.locked {
 
 @media (max-width: 900px) {
   .video {
-    width: 98vw;
+    width: 100vw;
     height: 500px;
   }
 
