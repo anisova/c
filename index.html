@@ -375,8 +375,8 @@
       <div class="library-container content-wrapper library-wrapper">
     <div class="library-slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide library-slide">
-                <div class="placeholder placeholder1-1">
+            <div class="swiper-slide library-slide placeholder1-1">
+                <div class="placeholder">
                     <img src="./img/youtube.png" alt="" class="placeholder__img">
                     <!-- <p class="placeholder__text">Мастер-классы</p> -->
                 </div>
@@ -820,7 +820,11 @@
               </a>
             </li>
           </ul>
-          <a href="tel:+74999384242" class="footer__phone">+7(499)938-42-42</a>
+          <div class="email-wrap">
+            <a href="mailto:info@coiffance.ru" class="footer__email"> info@coiffance.ru</a>
+            <a href="tel:+74999384242" class="footer__phone">+7(499)938-42-42</a>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -829,8 +833,6 @@
       <a href="#" class="footer__policy btn_policy">Политика обработки персональных данных</a>
     </div>
   </footer>
-
-
   <div class="form-modal">
   <div class="form-modal__container">
     <div class="btn-close">
@@ -845,8 +847,8 @@
       </div>
         <input class="form__input" type="text" name="name" id="name" placeholder="Ваше имя" autocomplete="off" required data-validate-field="name">
         <input class="form__input" type="tel" name="tel" id="tel" data-tel-input maxlength="18" placeholder="Номер телефона" required autocomplete="off" data-validate-field="tel">              
-        <input class="form__input" type="email" name="email" id="email" placeholder="E-mail" required data-validate-field="email">
-        <input class="form__input" type="text" name="city" id="city" placeholder="Город" required required data-validate-field="city">
+        <input class="form__input" type="email" name="email" id="email" placeholder="E-mail"  required data-validate-field="email">
+        <input class="form__input" type="text" name="city" id="city" placeholder="Город"  required required data-validate-field="city">
         <div class="form__block">
           <p class="form__text">Отправляя заявку, вы соглашаетесь с &nbsp;</p><a href="#"
             class="form__policy btn_policy"> правилами обработки персональных данных</a>
@@ -865,7 +867,7 @@
       </div>
       <div class="policy-modal__content">
         <div class="policy">
-          <p class="form__title">Политика обработки персональных данных</p>
+          <div class="form__title">Политика обработки персональных данных</div>
           <p>1. Общие положения
           </p>
           <p>Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального

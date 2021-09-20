@@ -413,8 +413,14 @@ videoModal('.video-modal','.placeholder5-8','.btn-close_white','https://www.yout
 
 
   //функция масок формы
-Inputmask({regex:"[a-zA-Zа-яА-я-]*"}).mask(document.getElementsByName('name'));
-Inputmask({regex:"[a-zA-Zа-яА-я-]*"}).mask(document.getElementsByName('city'));
+Inputmask({regex:"[a-zA-Zа-яА-я-]*", 
+    showMaskOnFocus: false,
+    showMaskOnHover: false}).mask(document.getElementsByName('name'));
+    Inputmask({regex:"[a-zA-Zа-яА-я-]*", 
+    showMaskOnFocus: false,
+    showMaskOnHover: false}).mask(document.getElementsByName('city'));
+// Inputmask({regex:"[a-zA-Zа-яА-я-]*"}).mask(document.getElementsByName('city'));
+
 document.addEventListener("DOMContentLoaded", function () {
     var phoneInputs = document.querySelectorAll('input[data-tel-input]');
     var getInputNumbersValue = function (input) {
@@ -491,6 +497,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function validateForms(selector, rules) {
     new window.JustValidate(selector, {
         rules: rules,
+        colorWrong: '',
         messages: {
             name: 'Обязательное поле. Должно содержать только буквы и знак тире "-"',
             email: 'Обязательное поле. Введите корректный адрес email',
