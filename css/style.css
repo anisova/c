@@ -987,6 +987,7 @@ img {
   width: 100%;
   margin: 0 auto;
   position: relative;
+  cursor: pointer;
 }
 
 .library-slider__arrows {
@@ -1383,6 +1384,7 @@ img {
       flex-shrink: 0;
   height: 100%;
   width: 830px;
+  cursor: pointer;
 }
 
 .care-container {
@@ -1883,6 +1885,7 @@ body.locked {
   height: 100%;
   width: 830px;
   position: relative;
+  cursor: pointer;
 }
 
 .perm-container {
@@ -1929,6 +1932,7 @@ body.locked {
   height: 100%;
   width: 830px;
   position: relative;
+  cursor: pointer;
 }
 
 .styling-container {
@@ -1975,6 +1979,7 @@ body.locked {
   height: 100%;
   width: 830px;
   position: relative;
+  cursor: pointer;
 }
 
 .products-container {
@@ -2208,7 +2213,7 @@ body.locked {
   }
 
   .video-modal__content {
-    width: 98vw;
+    width: 100vw;
     height: 500px;
   }
 }
